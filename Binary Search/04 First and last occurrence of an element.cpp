@@ -38,3 +38,54 @@ public:
         return res;
     }
 };
+
+// Another way of doing it, using different functions
+class Solution {
+public:
+    int first(vector<int>& nums, int target){
+        int s = 0;
+        int e = nums.size() -1;
+        int res = -1;
+        while(s<=e){
+            int mid = s + (e-s)/2;
+            if(target == nums[mid]){
+                res = mid;
+                e= mid-1;
+            }
+            else if(target< nums[mid]){
+                e = mid -1;
+            }
+            else{
+                s = mid+1;
+            }
+        }
+        return res;
+    }
+    int last(vector<int>& nums, int target){
+        int s = 0;
+        int e = nums.size() -1;
+        int res = -1;
+        while(s<=e){
+            int mid = s + (e-s)/2;
+            if(target == nums[mid]){
+                res = mid;
+                s = mid+1;
+            }
+            else if(target< nums[mid]){
+                e = mid -1;
+            }
+            else{
+                s = mid+1;
+            }
+        }    
+         return res;  
+    }
+    vector<int> searchRange(vector<int>& nums, int target) {
+       vector<int> ans;
+       int fIn = first(nums, target);
+       int lIn = last(nums, target);
+       ans.push_back(fIn);
+       ans.push_back(lIn);
+       return ans; 
+    }
+};
