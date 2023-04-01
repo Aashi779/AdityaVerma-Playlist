@@ -1,0 +1,25 @@
+// number of times the sorted array is rotated = index of minimum element
+// with recursion - O(N), with binary search - O(logN)
+// need to check for minimum element using pivot concept 
+// minimum element lies in the unsorted array 
+
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int left = 0; 
+        int right = nums.size() - 1;
+        while(left< right){
+            int mid = left + (right - left)/2;
+            if(nums[mid] > nums[right]){ 
+                // this means the right part is unsorted so the min will be in the right part 
+                left = mid+1;
+            }
+            else{
+                // min will be in left part 
+                right = mid;
+            }
+
+        }
+        return nums[right];  // left and right indices have become equal 
+    }
+};
