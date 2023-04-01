@@ -1,9 +1,10 @@
+// array is sorted but it is not known whether in ascending or descending order
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
       int start= 0;
       int end= nums.size()-1;
-      if (nums[0]>nums[1]){ // desending
+      if (nums[0]>nums[1]){ // descending
         while (start <= end)
         {
             int mid = start + (end-start)/2;
