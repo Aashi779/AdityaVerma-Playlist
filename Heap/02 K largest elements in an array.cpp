@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int findKthLargest(vector<int>& nums, int k) {
-       int val;
+    vector<int> findKLargest(vector<int>& nums, int k) {
+        vector<int> ans;
         priority_queue<int,vector<int>,greater<int>> minh;
         int n= nums.size();
         for (int i=0;i<n;i++)
@@ -12,7 +12,10 @@ public:
                     minh.pop();
             }
         }
-        return minh.top();
-        
+        while(minh.size()>0){
+          ans.push_back(minh.top());
+          minh.pop();
+        }
+        return ans;
     }
 };
