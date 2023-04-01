@@ -1,0 +1,12 @@
+// represented using a stack and size of k 
+// when to use - k + smallest = max heap 
+// k + largest = min heap
+// significance of k - normally nlogn but with k it is nlogk, so no need to sort the whole array
+// computation is saved 
+// we pop out elements which are of no use 
+// using stl - priority_queue<int> maxh;
+priority_queue<int, vector<int>, greater<int>> minh;
+
+// if want a pair 
+// type def pair<int, pair<int,int>> ppi; then use this ppi instead 
+// size of the heap has to be k 
