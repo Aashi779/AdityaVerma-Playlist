@@ -1,0 +1,21 @@
+vector<int> freqsort(vector<int>& nums){
+   vector<int> ans;
+   unordered_map<int, int> mp;
+   for(int i = 0; i< nums.size(); i++){
+     mp[nums[i]]++;
+   }
+   priority_queue<pair<int, int>> maxh;
+   for(auto i = mp.begin(); i != mp.end(); i++){
+     maxh.push({i->second, i->first});
+   }
+   
+   while(maxh.size() > 0){
+      int freq = max.top().first;
+      int ele = maxh.top().second;
+      for(int i = 1; i<=freq; i++){
+         ans.push_back(ele);
+         maxh.pop();
+      }
+   }
+   return ans;
+}
