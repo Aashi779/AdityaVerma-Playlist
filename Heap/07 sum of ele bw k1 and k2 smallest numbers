@@ -1,0 +1,22 @@
+int kthsmall(vector<int>nums, int k){
+   priority_queue<int> maxh;
+   for(int i =0; i< nums.size(); i++){
+     maxh.push(nums[i]);
+     if(maxh.size() > k){
+       maxh.pop();
+     }
+   }
+  return maxh.top();
+}
+
+int sumk1k2(vector<int> nums, int k1, int k2){
+   int sum = 0;
+   int first = kthsmall(nums, k1);
+   int second = kthsmall(nums, k2);
+   for(int i = 0; i< nums.size(); i++){
+     if(nums[i] > first && nums[i] < second){
+      sum += nums[i];
+     }
+   }
+   return sum;
+}
